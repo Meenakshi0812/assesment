@@ -129,14 +129,13 @@ services:
 
 3. created a file named `prometheus.yml` with the required content in solution directory.
    ```
-   global:
+global:
   scrape_interval: 15s
 
 scrape_configs:
   - job_name: 'csvserver'
     static_configs:
       - targets: ['csvserver:9300']
-
    ```
 
 5. Verified Prometheus is accessible at `http://localhost:9090` on the host.
