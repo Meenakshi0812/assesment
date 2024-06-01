@@ -18,7 +18,8 @@
 4. If step 1 fails due to the input file not being present, follow these steps:
     - Create a script named `gencsv.sh` to generate the input file.
 5. Add this shell script to create inputfile
-   ```#!/bin/bash
+   ```
+   #!/bin/bash
 
         start=$1
         end=$2
