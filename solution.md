@@ -128,14 +128,24 @@ services:
 ```
 
 3. created a file named `prometheus.yml` with the required content in solution directory.
+   ```
+   global:
+  scrape_interval: 15s
 
-4. Verified Prometheus is accessible at `http://localhost:9090` on the host.
+scrape_configs:
+  - job_name: 'csvserver'
+    static_configs:
+      - targets: ['csvserver:9300']
 
-5. Run the containers using Docker Compose:
+   ```
+
+5. Verified Prometheus is accessible at `http://localhost:9090` on the host.
+
+6. Run the containers using Docker Compose:
     ```
     docker-compose up -d
     ```
 
-6. Typed `csvserver_records` in the query box of Prometheus, click on Execute, and switch to the Graph tab.
+7. Typed `csvserver_records` in the query box of Prometheus, click on Execute, and switch to the Graph tab.
 
-7. There is a straight line graph with the value 7.
+8. There is a straight line graph with the value 7.
