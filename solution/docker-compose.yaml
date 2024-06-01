@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  csvserver:
+    image: infracloudio/csvserver:latest
+    container_name: csvserver
+    volumes:
+      - ./inputFile:/csvserver/inputdata
+    env_file:
+      - csvserver.env
+    ports:
+      - "9300:9300"
