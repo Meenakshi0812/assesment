@@ -18,7 +18,8 @@
 4. If step 1 fails due to the input file not being present, follow these steps:
     - Create a script named `gencsv.sh` to generate the input file.
 5. Add this shell script to create inputfile
-   ```#!/bin/bash
+   ```
+   #!/bin/bash
 
         start=$1
         end=$2
@@ -67,7 +68,7 @@ docker cp inputFile csvserver:/csvserver/inputdata
 11. now again run the container and check whether its running or not ,this time it resolves theissues.will move to next step.
 12. Run the Docker container with a volume mounted and environment variable set:
     ```
-    docker run -d --name csvserver -v "path-to/inputdata" -e CSVSERVER_BORDER=Orange infracloudio/csvserver:latest
+    docker run -d --name csvserver -v "$(pwd)/inputFile:/csvserver/inputdata" -p 9393:9300 -e CSVSERVER_BORDER=Orange infracloudio/csvserver:latest
     ```
 
 13. Access the application using the URL:
